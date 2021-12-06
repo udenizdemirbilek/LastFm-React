@@ -1,0 +1,26 @@
+.col {
+  margin: 2em 2em 2em 2em;
+}
+
+.artistImg {
+  border-radius: 20%;
+}
+
+.image {
+    display: flex;
+    justify-content: center;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.details {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: center;
+  margin: 1em;
+}
