@@ -1,13 +1,15 @@
 import React from 'react';
 import './App.css';
-import HomePage from './containers/HomePage/HomePage';
+import {QueryClient, QueryClientProvider} from 'react-query';
+import { Outlet } from 'react-router';
 
+const queryClient = new QueryClient();
 
 function App() {
   return (
-    <>
-      <HomePage />
-    </>
+    <QueryClientProvider client={queryClient}>
+      <Outlet />
+    </QueryClientProvider>
   );
 }
 
