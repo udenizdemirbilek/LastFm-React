@@ -1,2 +1,40 @@
-.container {
-  text-align: center;}
+.bg {
+  text-align: center;
+}
+
+.btn {
+  border: none;
+  padding: 10px 30px;
+  border-radius: 4px;
+  margin-top: 20px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+/* Light Mode Styles */
+
+.bg-light {
+  background-color: #fff;
+}
+
+.heading-light {
+  color: #222;
+}
+
+.para-light {
+  color: #222;
+}
+
+/* Dark Mode Styles */
+
+.heading-dark {
+  color: #fff;
+}
+
+.bg-dark {
+  background-color: #222;
+}
+
+.para-dark {
+  color: #fff;
+}

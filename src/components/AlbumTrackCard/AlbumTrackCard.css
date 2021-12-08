@@ -7,8 +7,8 @@
 }
 
 .image {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .title {
@@ -17,10 +17,38 @@
   justify-content: center;
 }
 
-.details {
+.playInfo {
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
   justify-content: center;
   margin: 1em;
+}
+
+/* Light Mode Styles */
+
+.bg-light {
+  background-color: #fff;
+}
+
+.heading-light {
+  color: #222;
+}
+
+.para-light {
+  color: #222;
+}
+
+/* Dark Mode Styles */
+
+.heading-dark {
+  color: #fff;
+}
+
+.bg-dark {
+  background-color: #222;
+}
+
+.para-dark {
+  color: #fff;
 }

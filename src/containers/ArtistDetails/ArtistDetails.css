@@ -1,18 +1,17 @@
-.artist-card {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 1em;
+.details {
+  text-align: center;
 }
 
-.cardCol {
-  margin: 2em 2em 2em 2em;
+.infoDiv {
+  margin: 0em 1em 1em 3em;
+  height: 35vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .artistImg {
-  max-width: 25vw;
-  height: auto;
-  border-radius: 20%;
+  margin: 1em;
 }
 
 /* Light Mode Styles */

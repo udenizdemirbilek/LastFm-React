@@ -4,6 +4,7 @@ import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import App from "./App";
 import HomePage from "./containers/HomePage/HomePage";
 import ArtistDetails from "./containers/ArtistDetails/ArtistDetails";
+import { ThemeProvider } from "./contexts/ThemeContext";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -11,23 +12,25 @@ import "bootstrap/dist/css/bootstrap.min.css";
 ReactDOM.render(
   <BrowserRouter>
     <React.StrictMode>
-      <Routes>
-      <Route path="/" element={<App />}>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/artistdetails" >
-            <Route path=":artistname" element={<ArtistDetails />} />
+      <ThemeProvider>
+        <Routes>
+          <Route path="/" element={<App />}>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/artist">
+              <Route path=":artistname" element={<ArtistDetails />} />
+            </Route>
+            <Route
+              path="*"
+              element={
+                <main style={{ padding: "5rem" }}>
+                  <p>Oops! This page doesn't exist yet!</p>
+                  <Link to="/">Go to the homepage</Link>
+                </main>
+              }
+            />
           </Route>
-          <Route
-            path="*"
-            element={
-              <main style={{ padding: "5rem" }}>
-                <p>Oops! This page doesn't exist yet!</p>
-                <Link to="/">Go to the homepage</Link>
-              </main>
-            }
-          />
-        </Route>
-      </Routes>
+        </Routes>
+      </ThemeProvider>
     </React.StrictMode>
   </BrowserRouter>,
   document.getElementById("root")

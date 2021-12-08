@@ -1,17 +1,19 @@
-import React, { createContext, Fragment } from "react";
+import React, { Fragment, useContext } from "react";
 import ArtistCard from "../../components/ArtistCard/ArtistCard";
 import { useInfiniteQuery } from "react-query";
-import { Container } from "react-bootstrap";
+import SwitchButton from "../../components/SwitchButton/SwitchButton";
+import { ThemeContext } from "../../contexts/ThemeContext";
 import "./HomePage.css";
 
 function HomePage() {
-  //   const theme = createContext("light");
+  const theme = useContext(ThemeContext);
+  const darkMode = theme.state.darkMode;
 
   async function fetchArtists(page = 1) {
     const response = await fetch(
       "https://ws.audioscrobbler.com/2.0/?method=chart.gettopartists&api_key=649254f14726ba86b788459408efe41b&=" +
         page +
-        "&limit=20&format=json"
+        "&limit=10&format=json"
     );
     if (!response.ok) {
       throw new Error("Network response was not ok");
@@ -38,8 +40,11 @@ function HomePage() {
   ) : status === "error" ? (
     <p>Error: {error.message}</p>
   ) : (
-    <Container>
-      <h1>Top Artists List</h1>
+    <div className={`bg ${darkMode ? "bg-dark" : "bg-light"}`}>
+      <h1 className={`heading ${darkMode ? "heading-dark" : "heading-light"}`}>
+        Top Artists List
+      </h1>
+      <SwitchButton />
       <div className="artist-list">
         {data.pages.map((group, i) => (
           <Fragment key={i}>
@@ -51,6 +56,7 @@ function HomePage() {
       </div>
       <div>
         <button
+          className={`btn ${darkMode ? "btn-light" : "btn-dark"}`}
           onClick={() => fetchNextPage()}
           disabled={!hasNextPage || isFetchingNextPage}
         >
@@ -63,7 +69,7 @@ function HomePage() {
       </div>
 
       <div>{isFetching && !isFetchingNextPage ? "Fetching..." : null}</div>
-    </Container>
+    </div>
   );
 }
 
